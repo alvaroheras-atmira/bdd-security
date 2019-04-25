@@ -19,7 +19,7 @@ Feature: SSL
 
   @iriusrisk-ssl_strong_cipher
   Scenario: The minimum cipher strength should meet requirements
-    Then the minimum key size must be 128 bits
+    Then the minimum key size must be 256 bits
 
   @iriusrisk-ssl_disabled_protocols
   Scenario: Disable weak SSL protocols due to numerous cryptographic weaknesses

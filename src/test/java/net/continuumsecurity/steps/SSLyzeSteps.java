@@ -63,7 +63,6 @@ public class SSLyzeSteps {
         for (String mandatory : mandatoryProtocols) {
             assertThat(supported, hasItem(mandatory));
         }
-
     }
 
     @Then("any of the following ciphers must be supported")
