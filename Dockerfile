@@ -15,6 +15,12 @@ WORKDIR .
 # Add the directory
 ADD . .
 
+USER root
+#RUN cp certificates/keytool /usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/bin
+#RUN cp certificates/cacerts /etc/ssl/certs/java
+#RUN cp certificates/.keystore /root/.keystore
+#RUN cp certificates/ca-certificates.crt /etc/ssl/certs
+
 # run gradle
 RUN ./gradlew buildIt
 

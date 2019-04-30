@@ -4,17 +4,18 @@
     <!-- The settings in this file are for the demo ropey-tasks vulnerable web app available at: https://github.com/stephendv/RopeyTasks,
         which is included in the bdd-security framework for demo purposes. -->
 
-    <!-- The web driver to use, can be either Firefox, Chrome or HtmlUnit. Optionally specify path to the driver (required 
+    <!-- The web driver to use, can be either Firefox, Chrome or HtmlUnit. Optionally specify path to the driver (required
         for linux)
-        Some drivers require a path to the platform specific driver binary, for example chrome needs chromedriver. If these 
+        Some drivers require a path to the platform specific driver binary, for example chrome needs chromedriver. If these
         values are not specified, we'll use HtmlUnit
         <defaultDriver>firefox</defaultDriver>
         <defaultDriver path="src/test/resources/drivers/chromedriver-mac">Chrome</defaultDriver> -->
 
     <!-- Base URL of the application to test -->
-    <baseUrl>https://psd2-demo:8099/</baseUrl>
+    <baseUrl>https://172.17.0.2:8443/</baseUrl>
+    <!-- <baseUrl>http://localhost:8099/</baseUrl> -->
 
-    <!-- A Java class to hold the Selenium steps to test the application in depth. Optionally required for in-depth authn/z 
+    <!-- A Java class to hold the Selenium steps to test the application in depth. Optionally required for in-depth authn/z
         and session management testing. -->
     <class>net.continuumsecurity.examples.ropeytasks.RopeyTasksApplication</class>
 
@@ -24,13 +25,14 @@
         pip install sslyze
     -->
     <sslyze>
-	    <!--        <path>/home/atmira/.local/bin/sslyze</path> --> 
-	<path>sslyze</path>
+        <!-- <path>/home/atmira/.local/bin/sslyze</path> -->
+        <path>sslyze</path>
         <option>--regular</option>
-        <targetHost>psd2-demo</targetHost>
-<!--         <targetHost>www.google.com</targetHost> -->
-<!--         <targetPort>443</targetPort> -->
-        <targetPort>8099</targetPort>
+        <targetHost>172.17.0.2</targetHost>
+        <!-- <targetHost>localhost</targetHost> -->
+        <!-- <targetHost>www.google.com</targetHost> -->
+        <!-- <targetPort>443</targetPort> -->
+        <targetPort>8443</targetPort>
     </sslyze>
 
     <!-- <sslyze>/home/atmira/.local/bin/sslyze regular</sslyze> -->
@@ -51,7 +53,7 @@
     </scanner>
 
     <!-- An upstream proxy through which all HTTP traffic must pass before hitting the target
-        application under test. The framework will configure both the WebDriver instance and ZAP to use this proxy. Note 
+        application under test. The framework will configure both the WebDriver instance and ZAP to use this proxy. Note
         that non-HTTP traffic will not use this proxy. -->
     <upstreamProxy>
         <host></host>
@@ -68,7 +70,7 @@
         <password>admin</password>
     </nessus>
 
-    <!-- Optional location of a running OWASP ZAP instance. Either an external- already running ZAP instance must be specified 
+    <!-- Optional location of a running OWASP ZAP instance. Either an external- already running ZAP instance must be specified
         here, or the zapPath must be specified to launch ZAP
         <proxy>
         <host>127.0.0.1</host>
